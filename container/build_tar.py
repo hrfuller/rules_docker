@@ -25,6 +25,7 @@ import warnings
 from tools.build_defs.pkg import archive
 from third_party.py import gflags
 
+lzma = None
 try:
   import lzma
 except ImportError:
@@ -35,7 +36,6 @@ except ImportError:
       "Could not find the lzma module. Building from XZ compressed tar files"
       " will fail."
     )
-    lzma = None
 
 gflags.DEFINE_string('output', None, 'The output file, mandatory')
 gflags.MarkFlagAsRequired('output')
